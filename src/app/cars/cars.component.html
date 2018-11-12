@@ -2,7 +2,9 @@
 
 <ul class="carList">
 	<li *ngFor="let car of cars">
-		<img src="./assets/img{{car.img}}"  width="200px">
+		<a routerLink="/car-details/{{car.id}}">
+			<img src="./assets/img{{car.img}}"  width="200px">
+		</a>
 	</li>
 </ul>
   

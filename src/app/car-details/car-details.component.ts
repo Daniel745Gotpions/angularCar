@@ -14,17 +14,27 @@ export class CarDetailsComponent implements OnInit {
 
   }
   
-  cars = cars;
-  chosenCar ;
+ 	cars = cars;
+ 	showSectionEdit:boolean = false;
+ 	displayTitle:string = 'Show Edit Panel';
+  	chosenCar;
 
-  ngOnInit() {
-  	let id = parseInt(this.route.snapshot.paramMap.get('id'));
-  	for(var i =0 ;i < this.cars.length;i++){
-		if( this.cars[i].id == id){
-			this.chosenCar = this.cars[i];
-		}
+  	showEditPanel(item){
+		this.showSectionEdit = ( !this.showSectionEdit )? true:false;
+		this.displayTitle = ( !this.showSectionEdit )? 'Show Edit Panel': 'Hide Edit Panel';
 	}
 
-  }
+  	ngOnInit() {
+  		
+	  	let id = parseInt(this.route.snapshot.paramMap.get('id'));
+	  	for(var i =0 ;i < this.cars.length;i++){
+			if( this.cars[i].id == id){
+				this.chosenCar = this.cars[i];
+			}
+		}
+	
+
+
+  	}
 
 }

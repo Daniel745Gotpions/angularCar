@@ -1,0 +1,27 @@
+.holderCar{
+    overflow: hidden;
+    max-width: 450px;
+    max-height: 245px;
+    padding: 10px;
+    margin: auto;
+}
+.holderCar .carDesign{
+	width: 100%;
+}
+.underline{
+	text-decoration: underline;
+}
+.section{
+	padding: 10px;
+    border: 1px #cdcdcd solid;
+    text-align: left;
+}
+.section label{
+	font-weight: bold;
+}
+.section span{
+	text-decoration: underline;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+h2{    margin-bottom: 60px;}

@@ -1,21 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import {cars} from '../car-list';
+
 @Component({
   selector: 'app-car-details',
   templateUrl: './car-details.component.html',
   styleUrls: ['./car-details.component.css']
 })
+
 export class CarDetailsComponent implements OnInit {
 
-  constructor(private router:Router) { 
-		debugger;
+  constructor(private route:ActivatedRoute) { 
+
   }
   
-
+  cars = cars;
+  chosenCar ;
 
   ngOnInit() {
-  	debugger
-  	let id = parseInt(this.router);
+  	let id = parseInt(this.route.snapshot.paramMap.get('id'));
+  	for(var i =0 ;i < this.cars.length;i++){
+		if( this.cars[i].id == id){
+			this.chosenCar = this.cars[i];
+		}
+	}
+
   }
 
 }

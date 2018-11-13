@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
 import {cars} from '../car-list';
 
 @Component({
@@ -10,7 +12,7 @@ import {cars} from '../car-list';
 
 export class CarDetailsComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute) { 
+  constructor(private route:ActivatedRoute, http:HttpClient) { 
 
   }
   

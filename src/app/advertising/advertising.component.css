@@ -1,0 +1,40 @@
+.news {
+    border: 1px #c5c5c5 solid;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #f8f8f8;
+}
+.fullBody {
+    margin-top: 10px;
+    text-align: left;
+    border-top: 1px #dcdcdc solid;
+    padding-top: 5px;
+    background: #f6f6f6;
+    padding: 10px;
+}
+.newsTitle {
+    text-align: left;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.newsBody {
+    text-align: left;
+    font-size: 15px;
+}
+
+.imageNews{
+    width: 100%;
+    border:1px #000 solid;
+}
+.readAllButton{
+    border: 0;
+    background: #f6a224;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    right: 10px;
+    bottom: 0px;
+}

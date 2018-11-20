@@ -1,12 +1,41 @@
-<h2> Car List </h2>  
+<div class="row">
+	<div class="col-lg-12">
+		<h2> Car List </h2> 
 
-<ul class="carList">
-	<li *ngFor="let car of cars">
-		<a routerLink="/car-details/{{car.id}}">
-			<img src="./assets/img{{car.img}}"  width="200px">
-		</a>
-	</li>
-</ul>
-  
+		<div class="box" *ngFor="let car of cars">
+			<div class="holderCarImage">
+				<a routerLink="/car-details/{{car.id}}">
+					<img src="./assets/img{{car.img}}"  >
+				</a>
+			</div>
+		
+			<div class="details">
+				<p class="title">
+					{{car.details.year}} {{car.name }} {{car.subModel }} 
+				</p>
+				<p class="msgrp">STARTING MSRP <label>COMBINED MPG</label></p>
+				<p class="price">{{car.details.price}}</p>
+
+			</div>			
+			<div class="holderButtons">
+				<a class="detailsBt borderRight" routerLink="/car-details/{{car.id}}">
+					Model Details
+				</a>
+				<a class="detailsBt" routerLink="/car-details/{{car.id}}">
+					Local Inventory
+				</a>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+<hr>
+<div class="row">
+	<div class="col-lg-12">
+		<app-advertising></app-advertising>
+	</div>
+</div>
 
 

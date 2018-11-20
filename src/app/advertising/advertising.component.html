@@ -1,0 +1,18 @@
+
+<h3> News </h3>
+
+<div class="news" *ngFor="let item of news">	
+	<div class="row">
+		<div class="col-lg-2">
+			<img src="{{item.imgSrc}}" class="imageNews">
+		</div>
+		<div class="col-lg-10">
+			<div class="newsTitle">{{item.title}}</div>
+			<div class="newsBody">{{item.miniTitle}}</div>
+			<button (click)="showAllNews(item)" class="readAllButton">Read All</button>
+		</div>
+	</div>
+	<div class="fullBody" *ngIf="item.showAll">
+		{{item.body}}
+	</div>
+</div>

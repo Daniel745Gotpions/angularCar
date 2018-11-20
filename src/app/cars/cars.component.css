@@ -18,3 +18,52 @@ ul.carList li:hover{
     -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
     box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.75);
 }
+.box {
+    display: inline-block;
+    width: 30%;
+    margin: 10px;
+}
+
+.box .holderCarImage img{
+    width: 100%;
+}
+
+.box .details{
+    background: #ffffff;
+    text-align: left;
+    padding: 10px;
+}
+.box .details .title{
+    font-size: 18px;
+    text-transform: capitalize;
+    margin-bottom: 0px;
+}
+
+.box .details .price{
+    font-size: 27px;
+    font-weight: bold;
+    margin: 0px;
+}
+.box .details .msgrp{
+    color: #767676;
+    font-size: 15px;
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+
+.holderButtons{
+    background: #ffffff;
+    border-top: 1px solid #e1e1e1;
+    text-align: left;
+}
+.borderRight{
+    border-right: 1px #d8d8d8 solid;
+}
+.detailsBt{
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+    padding: 5px;
+    color: #000000;
+    font-weight: bold;
+}

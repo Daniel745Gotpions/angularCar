@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { cars } from '../car-list';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-cars',
@@ -9,10 +9,18 @@ import { cars } from '../car-list';
 
 export class CarsComponent implements OnInit {
   
-  cars = cars;
-  constructor() { }
+  cars = [];
+  baseApi:string = "http://127.0.0.1:3000";
+
+  constructor(private http: HttpClient) { }
+  
   ngOnInit() {
-  	
+  	// On load call to node
+  	this.http.get(this.baseApi+'/get-cars').subscribe((res)=>{
+  		if( res.status ){
+  			this.cars = res.returnData;
+  		}
+  	});	
   }
 
 }

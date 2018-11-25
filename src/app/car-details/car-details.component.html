@@ -1,34 +1,34 @@
 <a routerLink="/car-list">Return to List</a>
 
-<div *ngIf="chosenCar"> 
+<div *ngIf="chosenCar.length > 0"> 
 	<div class="row">
 		<div class="col-lg-12">
-			<h2 class="underline">{{ chosenCar.name|uppercase }} {{ chosenCar.subModel|uppercase }}</h2>
+			<h2 class="underline">{{ chosenCar[0].name|uppercase }} {{ chosenCar[0].subModel|uppercase }}</h2>
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="col-lg-6">
 			<div class="holderCar">
-				<img  src="./assets/img/{{chosenCar.img}}" class="carDesign">
+				<img  src="./assets/img/{{chosenCar[0].img}}" class="carDesign">
 			</div>		
 		</div>
 		<div class="col-lg-4">
 			<div class="section">
 				<label>YEAR :</label> 
-				<span>{{chosenCar.details.year}}</span>
+				<span>{{chosenCar[0].details.year}}</span>
 			</div>
 			<div class="section">
 				<label>ENGINE:</label> 
-				<span>{{chosenCar.details.engine}}</span>
+				<span>{{chosenCar[0].details.engine}}</span>
 			</div>
 			<div class="section">
 				<label>WHY / RATING:</label> 
-				<span>{{chosenCar.details.rating}}</span>
+				<span>{{chosenCar[0].details.rating}}</span>
 			</div>
 			<div class="section">
 				<label>STARTING PRICE:</label> 
-				<span>{{chosenCar.details.price}}</span>
+				<span>{{chosenCar[0].details.price}}</span>
 			</div>
 		</div>
 	</div>
@@ -43,7 +43,7 @@
 				<div class="form-group row"  >
 				  <label class="col-2 col-form-label">YEAR</label>
 				  <div class="col-10">
-				    <input class="form-control" [(ngModel)]="chosenCar.details.year" type="text" placeholder="{{chosenCar.details.year}}" 
+				    <input class="form-control" [(ngModel)]="chosenCar[0].details.year" type="text" placeholder="{{chosenCar[0].details.year}}" 
 				    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 				  </div>
 				</div>
@@ -51,7 +51,7 @@
 				<div class="form-group row"  >
 				  <label class="col-2 col-form-label">ENGINE</label>
 				  <div class="col-10">
-				    <input class="form-control"  [(ngModel)]="chosenCar.details.engine" type="text" placeholder="{{chosenCar.details.engine}}" 
+				    <input class="form-control"  [(ngModel)]="chosenCar[0].details.engine" type="text" placeholder="{{chosenCar[0].details.engine}}" 
 				    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
 				  </div>
 				</div>				
@@ -59,22 +59,27 @@
 				<div class="form-group row"  >
 				  <label class="col-2 col-form-label">WHY / RATING</label>
 				  <div class="col-10">
-				    <input class="form-control"  [(ngModel)]="chosenCar.details.rating" type="text" placeholder="{{chosenCar.details.rating}}" >
+				    <input class="form-control"  [(ngModel)]="chosenCar[0].details.rating" type="text" placeholder="{{chosenCar[0].details.rating}}" >
 				  </div>
 				</div>
 
 				<div class="form-group row"  >
 				  <label class="col-2 col-form-label">STARTING PRICE</label>
 				  <div class="col-10">
-				    <input class="form-control"  [(ngModel)]="chosenCar.details.price" type="text" placeholder="{{chosenCar.details.price}}" >
+				    <input class="form-control"  [(ngModel)]="chosenCar[0].details.price" type="text" placeholder="{{chosenCar[0].details.price}}" >
 				  </div>
 				</div>	
 
+				<div class="form-group row">
+					<div class="col-10">
+						<button (click)="updateDetails(chosenCar)" class="btn btn-success">Update</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div *ngIf="!chosenCar"> Didn't Find Car Id In Our System  </div>
+<div *ngIf="!chosenCar.length"> Didn't Find Car Id In Our System  </div>
 
 

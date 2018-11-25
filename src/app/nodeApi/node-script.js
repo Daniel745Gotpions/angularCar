@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-
+const { parse } = require('querystring');
 // Allowed Cross domain
 var cors = require('cors');
 app.use(cors());
@@ -31,6 +31,19 @@ app.get('/get-cars', function(request, response){
     });
 });
 
+app.get("/update",function(request,response){
+    
+    response.send(request);
+});
+// Get data from spesific car
+app.get('/car-details/:carId',function(request,response){
+    var carId = parseInt(request.params.carId);
+    conn.query("SELECT * FROM cars WHERE id = "+carId ,function(error,results){        
+        response.send(results);
+    });
+});
+
+// Get news
 app.get('/get-news', function(request, response){
     conn.query('select * from news', function(error, results){
         var data = {status:true,returnData:[],message:''};

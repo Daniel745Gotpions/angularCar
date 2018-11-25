@@ -15,11 +15,14 @@ export class AdvertisingComponent implements OnInit {
     
     // On load call to node
     this.http.get(this.baseApi+'/get-news').subscribe((res)=>{
-      if( res.status ){
-        for(var i=0;i<res.returnData.length;i++){
+      if( res.hasOwnProperty('status') ){
+       //debugger
+
+        for(var i=0; i < res.returnData.length;i++){
           res.returnData[i].showAll = false;
         }
         this.news = res.returnData;
+
       }
     });  
   }

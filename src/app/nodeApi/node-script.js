@@ -32,8 +32,20 @@ app.get('/get-cars', function(request, response){
 });
 
 app.get("/update",function(request,response){
+
     
-    response.send(request);
+    var id = parseInt(request.query.id);
+    var details = {details:'{"year":"'+request.query.year+'","engine":"'+request.query.engine+'","price":"'+request.query.price+'","rating":"'+request.query.rating+'"}'};
+    conn.query('UPDATE cars SET ? WHERE id = '+request.query.id, details, function(error, result) {
+        var data = {status:true,message:'Update Success'};
+        if ( error ){
+            data.status = false;
+            data.message = error;
+            response.status(400).send(data);
+        } else {
+            response.send(data);
+        }
+    });
 });
 // Get data from spesific car
 app.get('/car-details/:carId',function(request,response){

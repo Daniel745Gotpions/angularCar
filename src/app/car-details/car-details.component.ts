@@ -18,23 +18,31 @@ export class CarDetailsComponent implements OnInit {
  	displayTitle:string = 'Show Edit Panel';
   	chosenCar: Array<object> = [];
   	carId:number;
+  	updateMessage:string ="";
   	showEditPanel(item){
 		this.showSectionEdit = ( !this.showSectionEdit )? true:false;
 		this.displayTitle = ( !this.showSectionEdit )? 'Show Edit Panel': 'Hide Edit Panel';
 	}
-	
+		
 	updateDetails(car){
-		
-		this.http.post(this.baseApi+"/update",car).subscribe(
-            data => {
-                console.log("POST Request is successful ", data);
-            },
-            error => {
-            	debugger;
-                console.log("Error", error);
-            }
-        );   
-		
+		this.updateMessage ='';
+		this.http.get(this.baseApi+"/update", {
+		      params: {
+		      	id:car[0].id,
+		      	year:car[0].details.year,
+		      	engine:car[0].details.engine,
+		      	price:car[0].details.price,
+		      	rating:car[0].details.rating,
+		      },
+		      observe: 'response'
+		    })
+		    .toPromise()
+		    .then(response => {
+		    	
+		      	this.updateMessage = response.body.message;
+
+		    })
+		    .catch(console.log); 
 	}
 
   	ngOnInit() {

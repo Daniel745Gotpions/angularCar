@@ -14,7 +14,7 @@ export class AdvertisingComponent implements OnInit {
   ngOnInit() {
     
     // On load call to node
-    this.http.get(this.baseApi+'/get-news').subscribe((res)=>{
+    this.http.get(this.baseApi+'/get-news').subscribe((res:any)=>{
       if( res.hasOwnProperty('status') ){
        //debugger
 

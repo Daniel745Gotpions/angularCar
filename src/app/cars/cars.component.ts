@@ -16,7 +16,7 @@ export class CarsComponent implements OnInit {
   
   ngOnInit() {
   	// On load call to node
-  	this.http.get(this.baseApi+'/get-cars').subscribe((res)=>{
+  	this.http.get(this.baseApi+'/get-cars').subscribe((res:any)=>{
   		 
       if( res.status ){
   			this.cars = res.returnData;

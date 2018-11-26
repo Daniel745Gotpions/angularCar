@@ -26,6 +26,7 @@ export class CarDetailsComponent implements OnInit {
 		
 	updateDetails(car){
 		this.updateMessage ='';
+
 		this.http.get(this.baseApi+"/update", {
 		      params: {
 		      	id:car[0].id,
@@ -35,14 +36,18 @@ export class CarDetailsComponent implements OnInit {
 		      	rating:car[0].details.rating,
 		      },
 		      observe: 'response'
-		    })
-		    .toPromise()
-		    .then(response => {
+		    }).subscribe((response:any) => {
 		    	
-		      	this.updateMessage = response.body.message;
+		       	this.updateMessage = response.body.message;
 
-		    })
-		    .catch(console.log); 
+		     });
+		    // .toPromise()
+		    // .then(response => {
+		    	
+		    //   	this.updateMessage = response.body.message;
+
+		    // })
+		    // .catch(console.log); 
 	}
 
   	ngOnInit() {

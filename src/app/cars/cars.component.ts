@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './cars.component.html',
   styleUrls: ['./cars.component.css']
 })
-
+ 
 export class CarsComponent implements OnInit {
   
   cars = [];
@@ -17,7 +17,7 @@ export class CarsComponent implements OnInit {
   ngOnInit() {
   	// On load call to node
   	this.http.get(this.baseApi+'/get-cars').subscribe((res)=>{
-  		res = <Object>res; 
+  		 
       if( res.status ){
   			this.cars = res.returnData;
   		}

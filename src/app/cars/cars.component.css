@@ -67,3 +67,9 @@ ul.carList li:hover{
     color: #000000;
     font-weight: bold;
 }
+
+@media only screen and (max-width: 767px) {
+    .box{
+       width: 100%; 
+    }
+}

@@ -15,6 +15,11 @@ var conn = mysql.createConnection({
 });
 
 conn.connect();
+// chosen runing port
+app.listen(3000, function () {
+    //console.log('Express server is listening on port 3000');
+});
+
 // Call to api
 app.get('/get-cars', function(request, response){
     conn.query('select * from cars', function(error, results){
@@ -31,9 +36,9 @@ app.get('/get-cars', function(request, response){
     });
 });
 
+// Update car
 app.get("/update",function(request,response){
 
-    
     var id = parseInt(request.query.id);
     var details = {details:'{"year":"'+request.query.year+'","engine":"'+request.query.engine+'","price":"'+request.query.price+'","rating":"'+request.query.rating+'"}'};
     conn.query('UPDATE cars SET ? WHERE id = '+request.query.id, details, function(error, result) {
@@ -47,6 +52,7 @@ app.get("/update",function(request,response){
         }
     });
 });
+
 // Get data from spesific car
 app.get('/car-details/:carId',function(request,response){
     var carId = parseInt(request.params.carId);
@@ -70,7 +76,3 @@ app.get('/get-news', function(request, response){
     });
 });
 
-// chosen runing port
-app.listen(3000, function () {
-    //console.log('Express server is listening on port 3000');
-});
